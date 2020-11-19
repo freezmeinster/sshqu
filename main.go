@@ -18,6 +18,8 @@ func setWinsize(f *os.File, w, h int) {
 		uintptr(unsafe.Pointer(&struct{ h, w, x, y uint16 }{uint16(h), uint16(w), 0, 0})))
 }
 
+
+
 func main() {
 	ssh.Handle(func(s ssh.Session) {
 		cmd := exec.Command("bash")
@@ -44,5 +46,13 @@ func main() {
 		}
 	})
 
-	log.Fatal(ssh.ListenAndServe("127.0.0.1:2222", nil))
+    passwordAuthOption := ssh.PasswordAuth(func(ctx ssh.Context, pass string) bool {
+          if pass == "R4h4514" {
+            return true
+          } else {
+            return false
+          }
+    })
+
+	log.Fatal(ssh.ListenAndServe("127.0.0.1:2107", nil, passwordAuthOption))
 }

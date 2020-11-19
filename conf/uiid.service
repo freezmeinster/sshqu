@@ -1,0 +1,9 @@
+[Unit]
+Description=Uiid
+
+[Service]
+Type=simple
+ExecStart=/usr/local/bin/uiid
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,9 @@
+Package: uiid
+Version: 0.9
+Section: custom
+Priority: optional
+Architecture: all
+Essential: no
+Installed-Size: 2233
+Maintainer: xx.yy.zz
+Description: Test
